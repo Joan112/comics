@@ -1,12 +1,9 @@
-import os
 from urllib import response
 from flask import Flask, jsonify, request
 import public.Functions as Functions
-# import jwt
-import database.con_bd
+
 
 app = Flask(__name__)
-
 
 @app.route("/searchComics/")
 def get_All():
@@ -39,28 +36,12 @@ def register():
     return Functions.register_user(data)
 
 # Implementar la ruta de autenticación
-
-
 @app.route("/user/auth", methods=["POST"])
 def authenticate_user():
     # Recibir y validar las credenciales del usuario
     data = request.get_json()
     responce = Functions.auth(data)
     return responce
-
-# @app.route("/user/<username>", methods=["GET"])
-# def get_user_data(username):
-#     Comprobar si el usuario está autenticado
-#     if not is_authenticated():
-#         return jsonify({"message": "No autorizado"}), 401
-
-#     Recuperar la información del usuario de la base de datos
-#     user = database.con_bd.users_collection.find_one({"username": username})
-#     if not user:
-#         return jsonify({"message": "Usuario no encontrado"}), 404
-
-#     Devolver la información del usuario al cliente
-#     return jsonify({"username": user["username"], "email": user["email"]})
 
 @app.route("/user/<username>")
 def search3(username):

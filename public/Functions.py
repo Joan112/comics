@@ -256,14 +256,14 @@ def auth(data):
             }, app.config["SECRET_KEY"])
             # print(token)
 
-            _id = user["_id"]
+            # _id = user["_id"]
             username = user["username"]
             password = user["password"]
             age = user["age"]
             token = token
             # Crea un nuevo documento de usuario en la base de datos
             user_id = database.con_bd.users_collection_token.insert_one(
-                {"_id": _id, "username": username, "password": password, "age": age, "token": token}).inserted_id
+                {"username": username, "password": password, "age": age, "token": token}).inserted_id
 
             if user_id is not None:
                 # Devolver el token generado al usuario
@@ -283,15 +283,19 @@ def logged(username):
                 {"username": username})
             print("respuesta" + str(user))
 
-            # Crear un diccionario con el nombre y la edad del usuario
-            print(user["_id"])
-            object_id = ObjectId( user["_id"])
-            json_object_id = json.dumps(str(object_id))
-            cleaned_string = json_object_id.replace('"', '')
-            user_data = {"id":cleaned_string,"name": user["username"],
-                         "age": user["age"], "token": user["token"]}
+            if user is None:
+              return jsonify({"message": "Usuario no se encuentra en autenticado"}), 401
+            else:
+                # Crear un diccionario con el nombre y la edad del usuario
+                print(user["_id"])
+                object_id = ObjectId( user["_id"])
+                json_object_id = json.dumps(str(object_id))
+                cleaned_string = json_object_id.replace('"', '')
+                user_data = {"id":cleaned_string,"name": user["username"],
+                            "age": user["age"], "token": user["token"]}
 
-            return json.dumps(user_data)
+                return json.dumps(user_data)
+
     except Exception as e:
         return jsonify(str(e))
 
