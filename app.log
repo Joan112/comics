@@ -1,0 +1,88 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+DEBUG:root:User: None
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 22:51:59] "[31m[1mPOST /user/auth HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 22:52:25] "[32mPOST /user/register HTTP/1.1[0m" 308 -
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 22:52:25] "POST /user/register/ HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b908998f67819714e7eda7'), 'username': 'carlos', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvcyIsImV4cCI6MTY3MzA3MjU0OH0.G-tdHA1yS_yjY0T8rNL_4-re4sc9qgE8RvS5ZuUyV3I
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 22:52:28] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b908998f67819714e7eda7'), 'username': 'carlos', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvcyIsImV4cCI6MTY3MzA3Mzk3NH0.PYmb8gPAEBZXrUa2DbALymCvD05rrCPW3phiB7spzVs
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:16:14] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: None
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:16:33] "[31m[1mPOST /user/auth HTTP/1.1[0m" 401 -
+DEBUG:root:User: {'_id': ObjectId('63b908998f67819714e7eda7'), 'username': 'carlos', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvcyIsImV4cCI6MTY3MzA3NDAwM30.c42xkFTKsvd-YoKnllSbpzNv_qVyPJv-0eNJQj7h7_8
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:16:43] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b908998f67819714e7eda7'), 'username': 'carlos', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvcyIsImV4cCI6MTY3MzA3NDA5N30.l3vZ9WUkkg8ZCMkE0U7UMT7LLghFAuyVIryu67e_XZ0
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:18:17] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b908998f67819714e7eda7'), 'username': 'carlos', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvcyIsImV4cCI6MTY3MzA3NDExNX0.nNigDpJG5hhSKQyJ6TpRQq2RK1T_FPOqSCESfwXaCxg
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:18:35] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b908998f67819714e7eda7'), 'username': 'carlos', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvcyIsImV4cCI6MTY3MzA3NDM0OX0.jTQlnjqTpDOHAck8rD3Tlkmy39n2NFQvGGKTSFuZos8
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:22:29] "POST /user/auth HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:22:52] "[32mPOST /user/register HTTP/1.1[0m" 308 -
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:22:52] "POST /user/register/ HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b908998f67819714e7eda7'), 'username': 'carlos', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvcyIsImV4cCI6MTY3MzA3NDQ4OX0.5QW5n-8ACG3AyCg2ikjxMfk50ScgesqyW0oJhLp_51g
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:24:49] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b908998f67819714e7eda7'), 'username': 'carlos', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvcyIsImV4cCI6MTY3MzA3NDU0Nn0.vdDFoHseeX2PNAphv1AL5SSMxYIcE1yufJxMjH_Yp9c
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:25:46] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b908998f67819714e7eda7'), 'username': 'carlos', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvcyIsImV4cCI6MTY3MzA3NDU5OX0.BA1yqu2vOvlQY1xR5luXXe_sO6ktE5mL2C0T95e4NQM
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:26:39] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b908998f67819714e7eda7'), 'username': 'carlos', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvcyIsImV4cCI6MTY3MzA3NDY5MX0.DKtc_uHBzonNjcy1Wyk0ZlVxTbuYk8dZLwd09OcBjxA
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:28:11] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b908998f67819714e7eda7'), 'username': 'carlos', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhcmxvcyIsImV4cCI6MTY3MzA3NDg0NX0.F9JeCtZ0VUHBdSl3VwOsul38PxE79gXR4NDJa_KRb6M
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:30:45] "POST /user/auth HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:34:30] "[32mPOST /user/register HTTP/1.1[0m" 308 -
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:34:30] "POST /user/register/ HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzUwNzV9.nZz5YBWaCGFRUSMYos-A35bZiUdiELjKH4GThI8ItVU
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:34:35] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzUxODd9.9vChjOzhqfAt1ScneEY2QStz9rTcZNHKLRVinvORyps
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:36:27] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzUyNzl9.W7I19w0g9v8CpXf5WM9Z_qcjnF9qolnv7hSoh7YnXPc
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:37:59] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzU1MjJ9.ka_iYK1hNT_KxFxVw5dO5mRgy8hvKiUv9NEFchHwaQE
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:42:02] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzU1NTd9.lcOjpqgeRVVJLtOvT7qNolpR3dJ90WRLgZ-uqpXX_C4
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:42:37] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzU1NTh9.RFtIYesc7etE4VKzqfqds_VbZTirtMksIz3yYr9B_ok
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:42:38] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzU2NjZ9.Prz55cbZK3OHxsRQNNw1C41HHihZ_rXH-tqB-1f_eQE
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:44:26] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzU2OTl9.kYvLpZtxiece2ll2p4ZwPnxc1bbnJWT12H32Q2NTXxc
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:44:59] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzU3ODl9.0NOfQkhz9ALL4riK-hI2E8nhWY3_jlByljIMejV2V8o
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:46:29] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzU3OTB9.ZNqQvxntvbXT48MAoJMk-bzW5FM7U33WvQpJbHRg0JE
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:46:30] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzU3OTB9.ZNqQvxntvbXT48MAoJMk-bzW5FM7U33WvQpJbHRg0JE
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:46:30] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzU3OTJ9.9Jymfd8vPef5l06eeEOitkVWDVgYaWY6OHFFt2BsiiQ
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:46:32] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzU3OTR9.K3kWKsXAwNWvQoCJuFnh09Eizt5XInYKjwiG6Smn_pc
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:46:34] "POST /user/auth HTTP/1.1" 200 -
+DEBUG:root:User: {'_id': ObjectId('63b912768f67819714e7eda9'), 'username': 'gigi', 'password': '123', 'age': '100'}
+DEBUG:root:Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdpZ2kiLCJleHAiOjE2NzMwNzU3OTR9.K3kWKsXAwNWvQoCJuFnh09Eizt5XInYKjwiG6Smn_pc
+INFO:werkzeug:127.0.0.1 - - [06/Jan/2023 23:46:34] "POST /user/auth HTTP/1.1" 200 -

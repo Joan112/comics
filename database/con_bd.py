@@ -5,4 +5,5 @@ db = client.pruebas
 
 db = client["pruebas"]
 users_collection = db["users"]
+users_collection_token = db["token_temp"]
 
