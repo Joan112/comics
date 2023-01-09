@@ -4,7 +4,7 @@ import json
 import logging
 from urllib import response
 from bson import ObjectId
-from flask import Flask, appcontext_popped, jsonify, request
+from flask import Flask, abort, appcontext_popped, jsonify, request
 import requests
 import hashlib
 import database.con_bd
@@ -75,27 +75,28 @@ def characters(keyword):
     }
     # Haga la solicitud a la API
     response = requests.get(api_url, params=params)
-    if response.status_code == 200:
+    try:
+        if response.status_code == 200:
 
-        data = response.json()["data"]
-        character = data["results"][0]
+            data = response.json()["data"]
+            character = data["results"][0]
 
-        character_id = character["id"]
-        name = character["name"]
-        image_url = character["thumbnail"]["path"] + \
-            "." + character["thumbnail"]["extension"]
-        appearances = character["comics"]["available"]
+            character_id = character["id"]
+            name = character["name"]
+            image_url = character["thumbnail"]["path"] + \
+                "." + character["thumbnail"]["extension"]
+            appearances = character["comics"]["available"]
 
-        character_data = {
-            "id": character_id,
-            "name": name,
-            "image_url": image_url,
-            "appearances": appearances
-        }
-        json_data = json.dumps(character_data)
-        return json_data
-    else:
-        print("Request failed with status code:", response.status_code)
+            character_data = {
+                "id": character_id,
+                "name": name,
+                "image_url": image_url,
+                "appearances": appearances
+            }
+            json_data = json.dumps(character_data)
+            return json_data 
+    except Exception as e:
+        return "Error 400: Bad Request. El personaje se no se enuentra en la API de marver" ,400
 
 
 def get_all_personaje():
