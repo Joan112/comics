@@ -1,11 +1,18 @@
+import datetime
+from distutils import config
 import json
+import logging
 from urllib import response
-from flask import Flask, jsonify, request
+from bson import ObjectId
+from flask import Flask, abort, appcontext_popped, jsonify, request
 import requests
 import hashlib
 import database.con_bd
+import jwt
 
-# app = Flask(__name__)
+app = Flask(__name__)
+app.config["SECRET_KEY"] = "mi_clave_secreta"
+# Configurar el sistema de registro
 
 # Establezca el tiempo de la solicitud (ts), la clave privada (privateKey) y la clave pública (publicKey)
 ts = "1"
@@ -17,9 +24,11 @@ public_key = "755c14df1f81387f1d83be92d9445371"
 string = ts + private_key + public_key
 # Genere el hash MD5 de la cadena
 hash = hashlib.md5(string.encode('utf-8')).hexdigest()
-print(hash)
+# print(hash)
 
 # busqueda por caracteres
+
+
 def comics(keyword):
     # Establezca el URL de la API de Marvel
     url = "https://gateway.marvel.com/v1/public/comics"
@@ -54,7 +63,7 @@ def comics(keyword):
         raise Exception("Request failed with status code:",
                         response.status_code)
 
-# busqueda por caracteres
+
 def characters(keyword):
     api_url = "https://gateway.marvel.com/v1/public/characters"
     # Establezca los parámetros de la solicitud
@@ -66,27 +75,29 @@ def characters(keyword):
     }
     # Haga la solicitud a la API
     response = requests.get(api_url, params=params)
-    if response.status_code == 200:
+    try:
+        if response.status_code == 200:
 
-        data = response.json()["data"]
-        character = data["results"][0]
+            data = response.json()["data"]
+            character = data["results"][0]
 
-        character_id = character["id"]
-        name = character["name"]
-        image_url = character["thumbnail"]["path"] + \
-            "." + character["thumbnail"]["extension"]
-        appearances = character["comics"]["available"]
+            character_id = character["id"]
+            name = character["name"]
+            image_url = character["thumbnail"]["path"] + \
+                "." + character["thumbnail"]["extension"]
+            appearances = character["comics"]["available"]
 
-        character_data = {
-            "id": character_id,
-            "name": name,
-            "image_url": image_url,
-            "appearances": appearances
-        }
-        json_data = json.dumps(character_data)
-        return json_data
-    else:
-        print("Request failed with status code:", response.status_code)
+            character_data = {
+                "id": character_id,
+                "name": name,
+                "image_url": image_url,
+                "appearances": appearances
+            }
+            json_data = json.dumps(character_data)
+            return json_data 
+    except Exception as e:
+        return "Error 400: Bad Request. El personaje se no se enuentra en la API de marver" ,400
+
 
 def get_all_personaje():
     # page_size es el número de resultados que se devuelven en cada página. Por ejemplo, si page_size es 20, cada página de resultados contendrá 20 resultados.
@@ -146,6 +157,7 @@ def get_all_personaje():
 
     json_data = json.dumps(characters)
     return json_data
+
 
 def get_all_comics():
     # page_size es el número de resultados que se devuelven en cada página. Por ejemplo, si page_size es 20, cada página de resultados contendrá 20 resultados.
@@ -223,5 +235,69 @@ def register_user(data):
             # El documento se ha insertado con éxito
             return jsonify({"user_id": str(user_id)})
     except Exception as e:
-        # Ha ocurrido un error al insertar el documento
         return jsonify(str(e))
+
+
+def auth(data):
+    try:
+        data = request.get_json()
+        username = data["username"]
+        password = data["password"]
+        if all([username, password]):
+            user = database.con_bd.users_collection.find_one(
+                {"username": username})
+            # print("respuesta" + str(user))
+            if not user or user["password"] != password:
+                return jsonify({"message": "Credenciales inválidas"}), 401
+
+            # Generar un token JWT para el usuario
+            token = jwt.encode({
+                "username": username,
+                "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
+            }, app.config["SECRET_KEY"])
+            # print(token)
+
+            # _id = user["_id"]
+            username = user["username"]
+            password = user["password"]
+            age = user["age"]
+            token = token
+            # Crea un nuevo documento de usuario en la base de datos
+            user_id = database.con_bd.users_collection_token.insert_one(
+                {"username": username, "password": password, "age": age, "token": token}).inserted_id
+
+            if user_id is not None:
+                # Devolver el token generado al usuario
+                return jsonify({"token": token})
+        else:
+            return jsonify({"message": "El nombre de usuario o la contraseña están vacíos"})
+
+    except Exception as e:
+        return jsonify(str(e))
+
+
+def logged(username):
+    try:
+
+        if all([username]):
+            user = database.con_bd.users_collection_token.find_one(
+                {"username": username})
+            print("respuesta" + str(user))
+
+            if user is None:
+              return jsonify({"message": "Usuario no se encuentra en autenticado"}), 401
+            else:
+                # Crear un diccionario con el nombre y la edad del usuario
+                print(user["_id"])
+                object_id = ObjectId( user["_id"])
+                json_object_id = json.dumps(str(object_id))
+                cleaned_string = json_object_id.replace('"', '')
+                user_data = {"id":cleaned_string,"name": user["username"],
+                            "age": user["age"], "token": user["token"]}
+
+                return json.dumps(user_data)
+
+    except Exception as e:
+        return jsonify(str(e))
+
+
